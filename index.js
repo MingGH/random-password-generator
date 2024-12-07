@@ -99,7 +99,7 @@ function copyToClip() {
 	document.execCommand("copy");
 	document.body.removeChild(input_temp);
 
-	alert("Password copied!");
+	alert("密码已复制！");
 }
 
 function getMin() {return MIN;}
