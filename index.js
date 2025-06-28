@@ -99,7 +99,15 @@ function copyToClip() {
 	document.execCommand("copy");
 	document.body.removeChild(input_temp);
 
-	alert("密码已复制！");
+
+    const alertBox = document.createElement('div');
+    alertBox.className = 'alert alert-success alert-dismissible fade show';
+    alertBox.role = 'alert';
+    alertBox.innerHTML = `
+      复制成功！
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    `;
+    document.body.appendChild(alertBox);
 }
 
 function getMin() {return MIN;}
@@ -109,9 +117,9 @@ function getMax () {return MAX;}
 let openInstructions = document.getElementById('instructions__header');
 let arrow = document.querySelector('.fas');
 
-openInstructions.addEventListener('click', () => { 
-    openInstructions.parentNode.classList.contains('active') ? 
-    (openInstructions.parentNode.classList.remove('active'), arrow.classList.remove('fa-angle-up'), arrow.classList.add('fa-angle-down') ) :  
+openInstructions.addEventListener('click', () => {
+    openInstructions.parentNode.classList.contains('active') ?
+    (openInstructions.parentNode.classList.remove('active'), arrow.classList.remove('fa-angle-up'), arrow.classList.add('fa-angle-down') ) :
     (openInstructions.parentNode.classList.add('active'), arrow.classList.remove('fa-angle-down'), arrow.classList.add('fa-angle-up'))
 });
 
